@@ -15,9 +15,9 @@ vim.o.smartindent = true
 vim.o.expandtab = true
 
 -- Autoformat rust files
-vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)]]
--- vim.cmd [[autocmd BufReadPost * :DetectIndent]]
---vim.api.nvim_command([[autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>]])
+--vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)]]
+vim.cmd [[autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx,*.css,*.scss,*.json,*.html,*.md,*.vue,*.yml,*.xml Neoformat]]
+vim.g.neoformat_try_node_exe = 1
 
 --Set highlight on search
 vim.o.hlsearch = false
@@ -48,6 +48,8 @@ vim.o.wrap = false
 --Set colorscheme (order is important here)
 vim.o.termguicolors = true
 vim.o.background = "dark"
+vim.g.vscode_style = "dark"
+vim.g.tokyonight_style = "storm"
 --vim.g.onedark_terminal_italics = 2
 --vim.g.gruvbox_terminal_italics = 0
 --vim.cmd [[colorscheme gruvbox]]

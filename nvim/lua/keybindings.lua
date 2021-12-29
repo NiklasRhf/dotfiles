@@ -70,6 +70,10 @@ keymap('n', '<leader>fw', [[<cmd>lua require('telescope.builtin').grep_string()<
 keymap('n', '<leader>fs', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], opts)
 keymap('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]], opts)
 keymap('n', '<leader>fo', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], opts)
+keymap('n', '<leader>fr', [[<cmd>lua require('telescope.builtin').lsp_references()<CR>]], opts)
+keymap('n', '<leader>gb', [[<cmd>lua require('telescope.builtin').git_bcommits()<CR>]], opts)
+keymap('n', '<leader>gc', [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], opts)
+keymap('n', '<leader>oo', [[<cmd>lua require('telescope.builtin').colorscheme()<CR>]], opts)
 
 -- Lsp settings
 local lsp = {}
@@ -99,6 +103,9 @@ function lsp.on_attach(_, bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
+keymap('n', '<leader>gb', [[<cmd>lua require('telescope.builtin').git_bcommits()<CR>]], opts)
+keymap('n', '<leader>gc', [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], opts)
+keymap('n', '<leader>oo', [[<cmd>lua require('telescope.builtin').colorscheme()<CR>]], opts)
 wk.register({
   f = {
     name = "Find",
@@ -112,6 +119,11 @@ wk.register({
     t = { "Find tags in current buffer" },
     o = { "Find old files" },
     d = { "Find symbols in document" },
+  },
+  g = {
+    name = "Git",
+    c = { "Commits" },
+    b = { "Buffer Commits" },
   },
   e = {
     name = "Explorer",
@@ -135,6 +147,11 @@ wk.register({
     n = { "Goto next diagnostic" },
     p = { "Goto previous diagnostic" },
     q = { "Show diagnostic list" },
+    r = { "Show references" },
+  },
+  o = {
+    name = "Colorschemes",
+    o = { "Show colorschemes" }
   },
 }, { prefix = "<leader>", mode = "n", buffer = nil, silent = true, nowait = true })
 

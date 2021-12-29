@@ -36,6 +36,9 @@ return require('packer').startup(function()
   -- colorscheme
   use 'joshdick/onedark.vim' -- Theme inspired by Atom
   use 'gruvbox-community/gruvbox'
+  use 'folke/tokyonight.nvim'
+  use 'Mofiqul/vscode.nvim'
+  use 'marko-cerovac/material.nvim'
 
   -- statusline
   use 'itchyny/lightline.vim' -- Fancier statusline
@@ -51,6 +54,7 @@ return require('packer').startup(function()
   use 'abzcoding/which-key.nvim'
   use { 'simrat39/rust-tools.nvim', requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' } }
   use 'xiyaowong/nvim-transparent'
+  use 'sbdchd/neoformat'
 
   -- git
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
