@@ -75,6 +75,11 @@ keymap('n', '<leader>gb', [[<cmd>lua require('telescope.builtin').git_bcommits()
 keymap('n', '<leader>gc', [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], opts)
 keymap('n', '<leader>oo', [[<cmd>lua require('telescope.builtin').colorscheme()<CR>]], opts)
 
+keymap('n', '<leader>tt', [[<cmd>TroubleToggle<CR>]], opts)
+keymap('n', '<leader>td', [[<cmd>TroubleToggle document_diagnostics<CR>]], opts)
+keymap('n', '<leader>tq', [[<cmd>TroubleToggle quickfix<CR>]], opts)
+keymap('n', '<leader>tl', [[<cmd>TroubleToggle loclist<CR>]], opts)
+
 -- Lsp settings
 local lsp = {}
 function lsp.on_attach(_, bufnr)
@@ -103,9 +108,6 @@ function lsp.on_attach(_, bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
-keymap('n', '<leader>gb', [[<cmd>lua require('telescope.builtin').git_bcommits()<CR>]], opts)
-keymap('n', '<leader>gc', [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], opts)
-keymap('n', '<leader>oo', [[<cmd>lua require('telescope.builtin').colorscheme()<CR>]], opts)
 wk.register({
   f = {
     name = "Find",
@@ -152,6 +154,13 @@ wk.register({
   o = {
     name = "Colorschemes",
     o = { "Show colorschemes" }
+  },
+  t = {
+    name = "Trouble",
+    t = "Toggle",
+    d = "Document diagnostics",
+    q = "Quickfix",
+    l = "LocList",
   },
 }, { prefix = "<leader>", mode = "n", buffer = nil, silent = true, nowait = true })
 

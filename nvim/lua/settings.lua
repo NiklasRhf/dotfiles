@@ -15,7 +15,7 @@ vim.o.smartindent = true
 vim.o.expandtab = true
 
 -- Autoformat rust files
---vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)]]
+vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)]]
 vim.cmd [[autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx,*.css,*.scss,*.json,*.html,*.md,*.vue,*.yml,*.xml Neoformat]]
 vim.g.neoformat_try_node_exe = 1
 

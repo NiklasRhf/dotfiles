@@ -46,7 +46,7 @@ return require('packer').startup(function()
 
   -- useful stuff
   use 'jiangmiao/auto-pairs'
-  -- use 'windwp/nvim-autopairs'
+  --use 'windwp/nvim-autopairs'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'karb94/neoscroll.nvim'
   use 'akinsho/toggleterm.nvim'
@@ -55,6 +55,11 @@ return require('packer').startup(function()
   use { 'simrat39/rust-tools.nvim', requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' } }
   use 'xiyaowong/nvim-transparent'
   use 'sbdchd/neoformat'
+  use {
+    'folke/trouble.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+  }
+  use 'lervag/vimtex'
 
   -- git
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
