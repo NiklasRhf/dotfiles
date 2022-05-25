@@ -19,9 +19,12 @@ return require('packer').startup(function()
   use "rafamadriz/friendly-snippets"
   use 'L3MON4D3/LuaSnip'
   use 'ray-x/lsp_signature.nvim'
+  use 'udalov/kotlin-vim'
 
   -- fuzzy finding
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  --use 'cljoly/telescope-repo.nvim'
+  --use 'jedi2610/nvim-rooter.lua'
 
   -- tree sitter
   use 'nvim-treesitter/nvim-treesitter'
@@ -50,7 +53,8 @@ return require('packer').startup(function()
   use 'lukas-reineke/indent-blankline.nvim'
   use 'karb94/neoscroll.nvim'
   use 'akinsho/toggleterm.nvim'
-  use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
+  use 'numToStr/Comment.nvim'
+  --use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
   use 'abzcoding/which-key.nvim'
   use { 'simrat39/rust-tools.nvim', requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' } }
   use 'xiyaowong/nvim-transparent'
@@ -60,6 +64,7 @@ return require('packer').startup(function()
     requires = 'kyazdani42/nvim-web-devicons',
   }
   use 'lervag/vimtex'
+  use 'gpanders/editorconfig.nvim'
 
   -- git
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }

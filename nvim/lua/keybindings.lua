@@ -65,6 +65,8 @@ keymap('n', '<leader>fn', [[<cmd>lua require('telescope.builtin').find_files({ p
 keymap('n', '<leader>fc', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], opts)
 keymap('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], opts)
 keymap('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], opts)
+keymap('n', '<leader>fp',
+  [[<cmd>lua require('telescope').extensions.repo.list{file_ignore_patterns={"/%.cache/", "/%.cargo/", "/%.local/", "AppData/"}}<CR>]], opts)
 -- keymap('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags()<CR>]], opts)
 keymap('n', '<leader>fw', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], opts)
 keymap('n', '<leader>fs', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], opts)
@@ -121,6 +123,7 @@ wk.register({
     t = { "Find tags in current buffer" },
     o = { "Find old files" },
     d = { "Find symbols in document" },
+    p = { "Find projects" },
   },
   g = {
     name = "Git",

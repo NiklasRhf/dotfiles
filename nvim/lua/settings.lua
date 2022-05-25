@@ -3,6 +3,10 @@ vim.o.fileencoding = "utf-8"
 vim.g.mapleader = ' '
 vim.o.timeoutlen = 150
 
+vim.g.copilot_assume_mapped = true
+--vim.g.copilot_no_tab_map = false
+-- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true  })
+
 -- Show line numbers
 vim.wo.relativenumber = true
 -- vim.o.cursorline = true
@@ -16,7 +20,7 @@ vim.o.expandtab = true
 
 -- Autoformat rust files
 vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)]]
-vim.cmd [[autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx,*.css,*.scss,*.json,*.html,*.md,*.vue,*.yml,*.xml Neoformat]]
+vim.cmd [[autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx,*.css,*.scss,*.json,*.html,*.md,*.vue,*.yml,*.xml,*.cs Neoformat]]
 vim.g.neoformat_try_node_exe = 1
 
 --Set highlight on search
