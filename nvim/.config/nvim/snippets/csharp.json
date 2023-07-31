@@ -1,0 +1,33 @@
+{
+  "Property change": {
+    "prefix": "propchange",
+    "body": [
+      "private ${1:int} ${2:myVar};",
+      "public ${1:int} ${3:MyProperty}",
+      "{",
+      "    get => ${2:myVar};",
+      "    set",
+      "    {",
+      "        ${2:myVar} = value;",
+      "        OnPropertyChanged(nameof(${3:MyProperty}));",
+      "    }",
+      "}$0"
+    ],
+    "description": "Property change field"
+  },
+  "DependencyProperty": {
+    "prefix": "depprop",
+    "body": [
+      "public static readonly DependencyProperty ${1:MyProperty} =",
+      "    DependencyProperty.Register(\"${2:MyField}\", typeof(${3:int}), typeof(${4:MyType}),",
+      "        new PropertyMetadata(${5:null}));",
+      "",
+      "public ${3:int} ${2:MyField}",
+      "{",
+      "    get => (${3:int})GetValue(${1:MyProperty});",
+      "    set => SetValue(${1:MyProperty}, value);",
+      "}$0"
+    ],
+    "description": "Dependency Property"
+  }
+}

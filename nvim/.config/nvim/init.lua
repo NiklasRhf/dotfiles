@@ -1,0 +1,6 @@
+require("plugins")
+require("settings")
+require("keybindings")
+require("modules")
+require("lsp")
+require("dap-dbg")

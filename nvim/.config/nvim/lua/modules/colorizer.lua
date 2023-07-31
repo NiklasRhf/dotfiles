@@ -1,0 +1,4 @@
+-- require('colorizer').setup {
+--   -- only enables css by default
+--   'css';
+-- }
