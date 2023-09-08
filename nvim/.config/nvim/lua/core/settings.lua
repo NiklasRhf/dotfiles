@@ -1,8 +1,6 @@
 vim.o.fileencoding = "utf-8"
 -- Set leader and timeout
 vim.g.mapleader = ' '
-vim.o.timeoutlen = 150
-
 vim.g.copilot_assume_mapped = true
 --vim.g.copilot_no_tab_map = false
 -- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true  })
@@ -18,21 +16,21 @@ vim.o.smartcase = true
 vim.o.smartindent = true
 vim.o.expandtab = true
 
-function change_filetype_workaround()
-  if filetype() == "xaml" then
-    vim.bo.filetype = "xml"
-  end
-end
-
-filetype = function()
-  local str = vim.fn.expand('%')
-  return str:match("[^.]+$")
-end
+-- function change_filetype_workaround()
+--   if filetype() == "xaml" then
+--     vim.bo.filetype = "xml"
+--   end
+-- end
+--
+-- filetype = function()
+--   local str = vim.fn.expand('%')
+--   return str:match("[^.]+$")
+-- end
 
 
 --vim.api.nvim_create_autocmd("VimEnter", { command = "source ~/AppData/Local/nvim/lua/modules/bufferline.lua", })
 vim.api.nvim_create_autocmd("BufWritePre *.cs", { command = "lua vim.lsp.buf.format({ async = true })", })
-vim.api.nvim_create_autocmd("BufRead,BufNewFile *.xaml", { command = "lua change_filetype_workaround()", })
+-- vim.api.nvim_create_autocmd("BufRead,BufNewFile *.xaml", { command = "lua change_filetype_workaround()", })
 
 -- au BufRead,BufNewFile *.xaml set filetype=xml
 
@@ -75,8 +73,8 @@ vim.g.tokyonight_style = "storm"
 --vim.g.onedark_terminal_italics = 2
 --vim.g.gruvbox_terminal_italics = 0
 --vim.cmd [[colorscheme gruvbox]]
-vim.cmd [[colorscheme onedark]]
-vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
+--vim.cmd [[colorscheme onedark]]
+--vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
@@ -97,4 +95,3 @@ vim.api.nvim_exec(
 ]] ,
   false
 )
-
