@@ -27,19 +27,17 @@ for pkg in "${packages[@]}"; do
     sudo pacman -S --noconfirm $pkg
 done
 
-yay -S brave-nightly-bin
+yay -S --noconfirm --needed brave-bin
+zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 
 echo "Installation complete."
 
 # Download dotfiles
-
 git clone https://github.com/NiklasRhf/dotfiles.git
 
 rm -rf ~/.config/i3
 rm ~/.bashrc
-
-# Install zap
-zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+rm ~/.zshrc
 
 # Link dotfiles
 cd dotfiles && stow --ignore='\.sh$' */
@@ -65,8 +63,3 @@ echo "$font_name installation complete."
 # Change the default shell to zsh
 echo "Changing the default shell to zsh..."
 chsh -s "$(which zsh)"
-
-echo "Shell changed to zsh. Logout and log back in to see the changes."
-
-# Forcefully logout
-# pkill -u niklas
