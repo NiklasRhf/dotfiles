@@ -114,7 +114,7 @@ font:
     family: "Hack Nerd Font"
     style: Bold Italic
 
-  size: 14
+  size: 12
   # Normal (roman) font face
   #normal:
   # Font family
