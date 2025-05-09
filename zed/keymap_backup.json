@@ -1,0 +1,81 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-shift-t": "pane::ReopenClosedItem",
+      "ctrl-o": "pane::GoBack",
+      "ctrl-i": "pane::GoForward"
+    }
+  },
+  {
+    "context": "EmptyPane || Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "space h": "pane::ActivatePrevItem",
+      "space l": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "Workspace && vim_mode == normal",
+    "bindings": {
+      "space f s": "workspace::NewSearch",
+      "space f f": "file_finder::Toggle",
+      "space t t": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "Editor && !menu",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "space g d": "editor::ToggleSelectedDiffHunks"
+    }
+  },
+  {
+    "context": "FileFinder || (FileFinder > Picker > Editor) || (FileFinder > Picker > menu)",
+    "bindings": {
+      "ctrl-k": "menu::SelectPrevious",
+      "ctrl-j": "menu::SelectNext"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+      "k j": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !menu",
+    "bindings": {
+      "space f s": "workspace::NewSearch",
+      "space f f": "file_finder::Toggle",
+      "space e": "workspace::ToggleLeftDock",
+      "space a": "workspace::ToggleRightDock",
+      "shift-ctrl-h": "pane::GoBack",
+      "shift-ctrl-l": "pane::GoForward",
+      "shift-l": "tab_switcher::Toggle",
+      "shift-h": ["tab_switcher::Toggle", { "select_last": true }]
+    }
+  },
+  {
+    "context": "TabSwitcher",
+    "bindings": {
+      // "shift-h": "menu::SelectPrevious",
+      // "shift-l": "menu::SelectNext",
+      "shift-x": "tab_switcher::CloseSelectedItem"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "ctrl-k": "editor::ContextMenuPrevious",
+      "ctrl-j": "editor::ContextMenuNext"
+    }
+  }
+]
