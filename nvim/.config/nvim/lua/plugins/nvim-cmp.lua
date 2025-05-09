@@ -3,19 +3,19 @@ return {
   event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
-    "hrsh7th/cmp-path", -- source for file system paths
-    "L3MON4D3/LuaSnip", -- snippet engine
-    "saadparwaiz1/cmp_luasnip", -- for autocompletion
+    "hrsh7th/cmp-path",   -- source for file system paths
+    -- "L3MON4D3/LuaSnip", -- snippet engine
+    -- "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
-    "onsails/lspkind.nvim", -- vs-code like pictograms
+    "onsails/lspkind.nvim",         -- vs-code like pictograms
   },
   config = function()
     local cmp = require("cmp")
-    local luasnip = require("luasnip")
+    -- local luasnip = require("luasnip")
     local lspkind = require("lspkind")
 
-    require("luasnip.loaders.from_vscode").lazy_load()
-    require("luasnip/loaders/from_vscode").lazy_load({ paths = { "./snippets" } })
+    -- require("luasnip.loaders.from_vscode").lazy_load()
+    -- require("luasnip/loaders/from_vscode").lazy_load({ paths = { "./snippets" } })
 
     local kind_icons = {
       Text = "",
@@ -51,7 +51,7 @@ return {
       },
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
-          luasnip.lsp_expand(args.body)
+          -- luasnip.lsp_expand(args.body)
         end,
       },
       mapping = cmp.mapping.preset.insert({
@@ -65,19 +65,19 @@ return {
           i = cmp.mapping.abort(),
           c = cmp.mapping.close(),
         },
-        ["<CR>"] = cmp.mapping.confirm { select = false },
+        ["<CR>"] = cmp.mapping.confirm { select = true },
         ["<C-l>"] = cmp.mapping(function()
-          if luasnip.jumpable(1) then
-            luasnip.jump(1)
-          end
+          -- if luasnip.jumpable(1) then
+          --   luasnip.jump(1)
+          -- end
         end, {
           "i",
           "s",
         }),
         ["<C-h>"] = cmp.mapping(function()
-          if luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          end
+          -- if luasnip.jumpable(-1) then
+          --   luasnip.jump(-1)
+          -- end
         end, {
           "i",
           "s",
@@ -87,9 +87,9 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
-        { name = "luasnip" }, -- snippets
+        -- { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
-        { name = "path" }, -- file system paths
+        { name = "path" },   -- file system paths
       }),
       formatting = {
         fields = { "kind", "abbr", "menu" },
@@ -102,7 +102,7 @@ return {
             vim_item.menu = ({
               nvim_lsp = "[LSP]",
               nvim_lua = "[NVIM_LUA]",
-              luasnip = "[Snippet]",
+              -- luasnip = "[Snippet]",
               buffer = "[Buffer]",
               path = "[Path]",
             })[entry.source.name]
@@ -112,7 +112,7 @@ return {
       },
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
-        select = false,
+        select = true,
 
       }
     })

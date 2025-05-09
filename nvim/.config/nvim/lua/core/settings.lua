@@ -31,6 +31,7 @@ vim.o.expandtab = true
 --vim.api.nvim_create_autocmd("VimEnter", { command = "source ~/AppData/Local/nvim/lua/modules/bufferline.lua", })
 --vim.api.nvim_create_autocmd("BufWritePre *.cs", { command = "lua vim.lsp.buf.format({ async = true })", })
 -- vim.api.nvim_create_autocmd("BufRead,BufNewFile *.xaml", { command = "lua change_filetype_workaround()", })
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- au BufRead,BufNewFile *.xaml set filetype=xml
 

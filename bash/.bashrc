@@ -100,3 +100,4 @@ source /usr/share/fzf/completion.bash
 export PATH=$PATH:/home/niklas/.local/bin/
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+. "$HOME/.cargo/env"

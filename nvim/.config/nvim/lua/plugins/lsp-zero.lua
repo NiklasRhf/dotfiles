@@ -3,14 +3,14 @@ return {
   branch = 'v2.x',
   dependencies = {
     -- LSP Support
-    { 'neovim/nvim-lspconfig' }, -- Required
-    { 'williamboman/mason.nvim' }, -- Optional
+    { 'neovim/nvim-lspconfig' },             -- Required
+    { 'williamboman/mason.nvim' },           -- Optional
     { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
     -- Autocompletion
-    { 'hrsh7th/nvim-cmp' }, -- Required
+    { 'hrsh7th/nvim-cmp' },     -- Required
     { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-    { 'L3MON4D3/LuaSnip' }, -- Required
+    -- { 'L3MON4D3/LuaSnip' },     -- Required
   },
   config = function()
     local lsp = require('lsp-zero')
@@ -32,8 +32,8 @@ return {
     lsp.on_attach(function(_, bufnr)
       opts.buffer = bufnr
       opts.desc = "Go to declaration"
-      keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-      keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
+      keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+      keymap.set('n', 'gD', '<cmd>Telescope lsp_definitions<CR>', opts)
       keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
       keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<CR>', opts)
       keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<CR>', opts)
@@ -46,7 +46,7 @@ return {
       keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
       keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
       --keymap.set(bufnr, 'v', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
-      -- keymap.set(bufnr, 'n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+      -- keymap.set('n', '<leader>cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
       keymap.set('n', '<leader>lp', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
       keymap.set('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
       keymap.set('n', '<leader>lq', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)

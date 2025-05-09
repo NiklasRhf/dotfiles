@@ -142,29 +142,26 @@ bindcode $mod+Shift+81 	 move container to workspace  $ws9
 bindcode $mod+Shift+90 	 move container to workspace  $ws10
 
 # resize window (you can also use the mouse for that):
-#mode "resize" {
+mode "resize" {
 # These bindings trigger as soon as you enter the resize mode
 # Pressing left will shrink the window's width.
 # Pressing right will grow the window's width.
 # Pressing up will shrink the window's height.
 # Pressing down will grow the window's height.
-#        bindsym j resize shrink width 10 px or 10 ppt
-#        bindsym k resize grow height 10 px or 10 ppt
-#        bindsym l resize shrink height 10 px or 10 ppt
-#        bindsym ntilde resize grow width 10 px or 10 ppt
+  bindsym l resize shrink width 5 px or 5 ppt
+  bindsym j resize grow height 5 px or 5 ppt
+  bindsym k resize shrink height 5 px or 5 ppt
+  bindsym h resize grow width 5 px or 5 ppt
+  bindsym $mod+l resize shrink width 1 px or 1 ppt
+  bindsym $mod+j resize grow height 1 px or 1 ppt
+  bindsym $mod+k resize shrink height 1 px or 1 ppt
+  bindsym $mod+h resize grow width 1 px or 1 ppt
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
 
-# same bindings, but for the arrow keys
-bindsym Left resize shrink width 5 px or 5 ppt
-bindsym Down resize grow height 10 px or 10 ppt
-bindsym Up resize shrink height 10 px or 10 ppt
-bindsym Right resize grow width 5 px or 5 ppt
-
-# back to normal: Enter or Escape
-#	bindsym Return mode "default"
-#        bindsym Escape mode "default"
-#}
-
-#bindsym $mod+r mode "resize"
+bindsym $mod+r mode "resize"
 
 ######################################
 # keybindings for different actions: #
@@ -382,8 +379,8 @@ exec --no-startup-id setxkbmap -layout 'us,de' -variant intl,qwertz -option 'grp
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
-# exec --no-startup-id sleep 2 && nitrogen --restore
-# exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
+exec --no-startup-id sleep 2 && nitrogen --restore
+exec --no-startup-id sleep 1 && feh --bg-fill ~/Downloads/Wallpaper/hong_kong_3-wallpaper-5120x1440.jpg
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -575,7 +572,14 @@ bindsym $mod+t exec rofi -show window \
 
 bindsym $mod+Shift+w exec i3-msg "workspace 2:; append_layout ~/.i3/workspace-1.json; exec --no-startup-id alacritty; exec --no-startup-id brave; exec --no-startup-id brave; exec --no-startup-id sleep 1"
 
-exec --no-startup-id xrandr --output DP-0 --mode 5120x1440
+bindsym $mod+Shift+m exec --no-startup-id ~/.screenlayout/monitor.sh
+bindsym $mod+Shift+a exec --no-startup-id autorandr -c
+
+# exec --no-startup-id xrandr --output DP-0 --mode 5120x1440
+# dell xps
+exec --no-startup-id ~/.screenlayout/monitor.sh
+exec --no-startup-id ~/scripts/power_settings.sh
+
 
 exec --no-startup-id i3-msg "workspace $ws1; append_layout ~/.i3/workspace-1.json"
 #i3-msg "workspace 2:; append_layout ~/.i3/workspace-1.json"
@@ -585,3 +589,17 @@ exec --no-startup-id sleep 2 && brave
 exec --no-startup-id sleep 1 && feh --bg-scale ~/Downloads/Wallpaper/oYD0Hqs.jpg
 
 for_window [title="ytdl-tauri"] floating enable
+
+#exec --no-startup-id ~/res_script.sh
+
+# Define workspace outputs (virtual monitors)
+workspace 11 output primary
+workspace 22 output primary
+workspace 33 output primary
+
+# Set specific dimensions for each workspace area
+for_window [workspace=11] move position 0 0, resize set 1280 1440
+for_window [workspace=22] move position 1280 0, resize set 2560 1440
+for_window [workspace=33] move position 3840 0, resize set 1280 1440
+
+bindsym $mod+Shift+d workspace 11

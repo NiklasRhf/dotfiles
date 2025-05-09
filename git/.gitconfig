@@ -1,3 +1,27 @@
 [user]
-	email = niklas.rennhofer@gmx.de
+	email = niklas.rennhofer@kenbun.de
 	name = Niklas Rennhofer
+
+[core]
+  pager = delta
+
+[delta]
+	syntax-theme = Dracula
+	features = side-by-side line-numbers decorations navigate
+
+[delta "line-numbers"]
+	line-numbers-left-style = cyan
+
+[alias]
+	c = commit --verbose
+	s = status -s
+	d = diff
+	ds = diff --stat
+	dc = diff --cached
+	dn = diff --numstat
+	ss = status
+	a = add
+
+[push]
+	autoSetupRemote = true
+	default = current
